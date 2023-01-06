@@ -1,4 +1,4 @@
-from revChatGPT.revChatGPT import Chatbot
+from revChatGPT.ChatGPT import Chatbot
 import json
 
 from record import SpeechRecognizer
@@ -18,7 +18,7 @@ print("Say something!")
 while True:
     message = listen.listen()
     print(f"Recognized: {message}")
-    resp = chatbot.get_chat_response(message)
+    resp = chatbot.ask(message, conversation_id=None, parent_id=None)
     response = resp['message']
     print(f"Response: {response}")
     speak.speak(response)
